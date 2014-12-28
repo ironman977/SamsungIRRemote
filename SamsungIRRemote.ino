@@ -132,7 +132,7 @@ void loop()
   unsigned int Device=0x0707, Data=0;
   if (button == 1) {
 	digitalWrite(LEDPIN,HIGH);
-	Data=0x98; //power off
+	Data=0x02; //power toggle
 	Crc=~Data;
     Samsung::SendCommand(Type, Device, Data, Crc);
 	delay(500);
@@ -159,7 +159,7 @@ void loop()
 	Crc=~Data;
     Samsung::SendCommand(Type, Device, Data, Crc);
 	delay(300);
-	Data=0x99; //PowerON
+	Data=0x02; //PowerToggle
 	Crc=~Data;
     Samsung::SendCommand(Type, Device, Data, Crc);
 	delay(300);
