@@ -151,7 +151,7 @@ void loop()
 	Crc=~Data;
     Samsung::SendCommand(Type, Device, Data, Crc);
 	delay(300);
-	Data=0x01; //MENU
+	Data=0x1A; //MENU
 	Crc=~Data;
     Samsung::SendCommand(Type, Device, Data, Crc);
 	delay(300);
