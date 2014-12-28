@@ -132,13 +132,37 @@ void loop()
   unsigned int Device=0x0707, Data=0;
   if (button == 1) {
 	digitalWrite(LEDPIN,HIGH);
-	Data=0x98;
+	Data=0x98; //power off
 	Crc=~Data;
     Samsung::SendCommand(Type, Device, Data, Crc);
 	delay(500);
   } else if (button == 2) {
+	Data=0x3B; //FACTORY
+	Crc=~Data;
+    Samsung::SendCommand(Type, Device, Data, Crc);
+	delay(300);
+	Data=0x3C; //3SPEED
+	Crc=~Data;
+    Samsung::SendCommand(Type, Device, Data, Crc);
+	delay(300);
 	digitalWrite(LEDPIN,HIGH);
   } else if (button == 4) {
+	Data=0x1F; //INFO
+	Crc=~Data;
+    Samsung::SendCommand(Type, Device, Data, Crc);
+	delay(300);
+	Data=0x01; //MENU
+	Crc=~Data;
+    Samsung::SendCommand(Type, Device, Data, Crc);
+	delay(300);
+	Data=0x0F; //MUTE
+	Crc=~Data;
+    Samsung::SendCommand(Type, Device, Data, Crc);
+	delay(300);
+	Data=0x99; //PowerON
+	Crc=~Data;
+    Samsung::SendCommand(Type, Device, Data, Crc);
+	delay(300);
 	digitalWrite(LEDPIN,HIGH);
   } else {
 	digitalWrite(LEDPIN,LOW);
